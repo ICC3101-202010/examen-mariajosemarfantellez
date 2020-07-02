@@ -173,7 +173,7 @@ namespace Examen_MaríaJoseMarfan
             }
             Entrenador entrenador = new Entrenador(nombreentre, edadentre, sueldoentre, naciionentre, ptac);
             int o = 1;
-            while(o<3)
+            while(o<16)
             {
                 Console.WriteLine("Jugador " + o);
                 Console.WriteLine("Diga el nombre del jugador");

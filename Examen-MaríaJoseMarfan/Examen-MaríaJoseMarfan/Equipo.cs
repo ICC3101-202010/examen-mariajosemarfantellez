@@ -50,7 +50,7 @@ namespace Examen_MaríaJoseMarfan
                 return true;
             }
         }
-        public void InformacionJugadores(Equipo e) //retorna al jugador que se le quiere saber la informacion
+        public void InformacionJugadores(Equipo e) //me da la informacion del equipo
         {
             int a = 0;
             Console.WriteLine("El nombre del equipo es: " + e.Name + "\nEl esquipo es: " + e.Tipo + "\nEl entrenador es: " + e.Entrenadorr.Nombre + "\nEl medico es: " + e.Medicoo.Nombre);
