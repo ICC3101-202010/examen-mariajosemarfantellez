@@ -37,28 +37,28 @@ namespace Examen_MaríaJoseMarfan
             if (nacion == "liga") return true;
             else
             {
+                Console.WriteLine("La nacionalidad del equipo es: " + e.Tipo);
                 foreach (Jugadores i in e.Jugadoress)
                 {
+                    Console.WriteLine("El nombre de un jugador es: " + i.Nombre+" Y su nacionalidad es: "+i.Nacional);
                     if (i.Nacional != nacion)
                     {
                         return false;
                     }
+
                 }
                 return true;
             }
         }
-        public Jugadores InformacionJugadores(int num, Equipo e) //retorna al jugador que se le quiere saber la informacion
+        public void InformacionJugadores(Equipo e) //retorna al jugador que se le quiere saber la informacion
         {
             int a = 0;
+            Console.WriteLine("El nombre del equipo es: " + e.Name + "\nEl esquipo es: " + e.Tipo + "\nEl entrenador es: " + e.Entrenadorr.Nombre + "\nEl medico es: " + e.Medicoo.Nombre);
             foreach (Jugadores i in e.Jugadoress)
             {
-                if (i.NumeroCamiseta == num)
-                {
-                    return e.Jugadoress[a];
-                }
-                a++;
+                Console.WriteLine("El nombre de un jugador es: " + i.Nombre+"\nLa nacionalidad del jugador es: "+i.Nacional);
             }
-            return e.Jugadoress[a];
+            
         }
 
     }

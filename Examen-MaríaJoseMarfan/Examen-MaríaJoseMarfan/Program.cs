@@ -17,7 +17,7 @@ namespace Examen_MaríaJoseMarfan
             while (exec)
             {
                 // Pedimos al usuario una de las opciones
-                string chosen = ShowOptions(new List<string>() { "Crear equipo", "Corroborar nacionalidad","Información de un jugador","Salir" });
+                string chosen = ShowOptions(new List<string>() { "Crear equipo", "Corroborar nacionalidad","Información del equipo","Salir" });
                 switch (chosen)
                 {
                     case "Crear equipo":
@@ -34,30 +34,12 @@ namespace Examen_MaríaJoseMarfan
                         {
                             Console.WriteLine("No todos los jugadores cumplen con la nacionalidad");
                         }
+
                         Thread.Sleep(1000);
                         break;
-                    case "Información de un jugador":
+                    case "Información del equipo":
                         Console.Clear();
-                        Console.WriteLine("Diga el numero de la camiseta del jugador");
-                        int num = -1;
-                        while (num == -1)
-                        {
-                            try
-                            {
-                                num = int.Parse(Console.ReadLine());
-                                if (num < 0)
-                                {
-                                    Console.WriteLine("Ingrese un numero valido");
-                                    num = -1;
-                                }
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Formato invalido\nIngrese un numero como numero de camiseta");
-                            }
-                        }
-                        jug = equipo.InformacionJugadores(num, equipo);
-                        Console.WriteLine("\nNombre: " + jug.Nombre + "\nEdad: " + jug.Edad + "\nNacionalidad: " + jug.Nacional + "\nDefensa: " + jug.Defensa + "\nPuntos de ataque: " + jug.PuntosAtaque + "\nSueldo: " + jug.Sueldo + "\nNumero de camiseta: " + jug.NumeroCamiseta);
+                        equipo.InformacionJugadores(equipo);
                         Thread.Sleep(3000);
                         break;
                     case "Salir":
