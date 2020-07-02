@@ -13,6 +13,10 @@ namespace Examen_MaríaJoseMarfan
         private Medico medico;
         private string name;
         private string tipo;
+        public Equipo()
+        {
+
+        }
         public Equipo(string name, string tipo, List<Jugadores> jugadores, Entrenador entrenador, Medico medico)
         {
             this.name = name;
@@ -27,20 +31,34 @@ namespace Examen_MaríaJoseMarfan
         public string Name { get => name; set => name = value; }
         public string Tipo { get => tipo; set => tipo = value; } //si es nacional debe corroborar que todos los jugadores sean de la misma nacion
 
-        public bool CorroborarNacionalidad(string nacion) //si retorna falso hay un jugador con distinta nacionalidad
+        
+        public bool CorroborarNacionalidad(string nacion, Equipo e) //si retorna false hay un jugador con distinta nacionalidad
         {
-            foreach(Jugadores i in Jugadoress)
+            if (nacion == "liga") return true;
+            else
             {
-                if (i.Nacional != nacion)
+                foreach (Jugadores i in e.Jugadoress)
                 {
-                    return false;
-                } 
+                    if (i.Nacional != nacion)
+                    {
+                        return false;
+                    }
+                }
+                return true;
             }
-            return true;
         }
-        public List<Jugadores> InformacionJugadores() //retorna al jugador que se le quiere saber la informacion
+        public Jugadores InformacionJugadores(int num, Equipo e) //retorna al jugador que se le quiere saber la informacion
         {
-            return this.Jugadoress;
+            int a = 0;
+            foreach (Jugadores i in e.Jugadoress)
+            {
+                if (i.NumeroCamiseta == num)
+                {
+                    return e.Jugadoress[a];
+                }
+                a++;
+            }
+            return e.Jugadoress[a];
         }
 
     }

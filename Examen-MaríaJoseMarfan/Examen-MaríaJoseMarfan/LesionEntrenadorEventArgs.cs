@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen_MaríaJoseMarfan
 {
-    public class JugadorNormal : Jugadores
+    public class LesionEntrenadorEventArgs : EventArgs 
     {
-        private string posicion;
-
-        public string Posicion { get => posicion; set => posicion = value; }
     }
 }

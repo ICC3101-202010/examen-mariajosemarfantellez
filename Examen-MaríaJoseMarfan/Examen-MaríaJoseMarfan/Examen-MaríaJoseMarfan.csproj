@@ -49,6 +49,7 @@
     <Compile Include="IJugar.cs" />
     <Compile Include="Jugadores.cs" />
     <Compile Include="JugadorNormal.cs" />
+    <Compile Include="LesionEntrenadorEventArgs.cs" />
     <Compile Include="LesionEventArgs.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Partido.cs" />

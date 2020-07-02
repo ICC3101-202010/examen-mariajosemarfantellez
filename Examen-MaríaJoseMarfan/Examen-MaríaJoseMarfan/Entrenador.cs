@@ -10,6 +10,14 @@ namespace Examen_MaríaJoseMarfan
     {
         private int puntosTactica;
         Random rnd = new Random();
+        public Entrenador(string nombre, int edad, int sueldo, string nacion, int puntosTactica) : base()
+        {
+            this.Nombre = nombre;
+            this.Edad = edad;
+            this.Nacional = nacion;
+            this.Sueldo = sueldo;
+            this.puntosTactica = puntosTactica;
+        }
         public int CambiarJugador() //retorna el numero de la posicion de la lista de jugadores que entra al juego.
         {
             int numero = rnd.Next(0, 15);
@@ -23,5 +31,23 @@ namespace Examen_MaríaJoseMarfan
             Console.WriteLine($"\nEl jugador con la camiseta {e.NumeroJugador} está lesionado!\n");
             Thread.Sleep(2000);
         }
-    }
+
+        //Evento que avise a Partido que debemos hacer un cambio y realizar ese cambio
+
+        public delegate void LesionEntrenadorEventHandler(object source, LesionEntrenadorEventArgs args);
+        public event LesionEntrenadorEventHandler LesionEntrenadored;
+        protected virtual void OnLesionEntrenadored()
+        {
+            if (LesionEntrenadored != null)
+            {
+                LesionEntrenadored(this, new LesionEntrenadorEventArgs() { });
+            }
+        }
+        public void LesionEntrenador()
+        {
+            OnLesionEntrenadored();
+            CambiarJugador();
+        }
+
+}
 }
